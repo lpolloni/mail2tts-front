@@ -31,3 +31,4 @@ jobs:
         git remote add deploy ssh://deploy@lucaspolloni.com:/opt/mail2tts/stg/app.git
         git push deploy staging:master --force
         
+
