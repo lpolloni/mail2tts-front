@@ -17,7 +17,7 @@ export default function Landing() {
             <li><span className="font-semibold text-gray-100">•</span> Segurança e privacidade</li>
           </ul>
           <a
-            href="/form-ticket"
+            href="#"
             className="mt-4 w-full sm:w-auto bg-gray-700 hover:bg-gray-800 text-gray-100 rounded-lg px-8 py-4 font-semibold text-lg shadow transition"
           >
             Teste grátis agora
