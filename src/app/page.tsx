@@ -69,39 +69,43 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background font-sans">
-      <div className="bg-white dark:bg-[#171717] rounded-xl shadow-lg p-8 flex flex-col sm:flex-row gap-8 w-full max-w-4xl">
-        <form className="flex flex-col gap-4 w-full sm:w-2/3">
-          <label className="font-semibold">Subject</label>
-          <input
-            type="text"
-            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-background"
-            value={subject}
-            onChange={e => setSubject(e.target.value)}
-            placeholder="Enter subject"
-          />
+    <div className="min-h-screen flex items-center justify-center bg-[#232323] font-sans">
+      <div className="bg-[#2D2D2D] rounded-2xl shadow-2xl p-8 flex flex-col sm:flex-row gap-10 w-full max-w-4xl border border-[#232323]">
+  <form className="flex flex-col gap-6 w-full sm:w-2/3">
+          <div>
+            <label className="block text-sm font-medium text-gray-200 mb-1">Subject</label>
+            <input
+              type="text"
+              className="w-full border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 bg-[#232323] text-gray-100 placeholder-gray-400 transition"
+              value={subject}
+              onChange={e => setSubject(e.target.value)}
+              placeholder="Enter subject"
+            />
+          </div>
 
-          <label className="font-semibold">Category</label>
-          <select
-            className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-background overflow-y-auto"
-            value={category}
-            onChange={e => {
-              setCategory(e.target.value);
-              setType("");
-              setItem("");
-            }}
-          >
-            <option value="">Select category</option>
-            {Object.keys(categories).map(cat => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
+          <div>
+            <label className="block text-sm font-medium text-gray-200 mb-1">Category</label>
+            <select
+              className="w-full border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 bg-[#232323] text-gray-100 placeholder-gray-400 transition"
+              value={category}
+              onChange={e => {
+                setCategory(e.target.value);
+                setType("");
+                setItem("");
+              }}
+            >
+              <option value="">Select category</option>
+              {Object.keys(categories).map(cat => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
+          </div>
 
           {category && (
-            <>
-              <label className="font-semibold">Type</label>
+            <div>
+              <label className="block text-sm font-medium text-gray-200 mb-1">Type</label>
               <select
-                className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-background overflow-y-auto"
+                className="w-full border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 bg-[#232323] text-gray-100 placeholder-gray-400 transition"
                 value={type}
                 onChange={e => {
                   setType(e.target.value);
@@ -113,14 +117,14 @@ export default function Home() {
                   <option key={t} value={t}>{t}</option>
                 ))}
               </select>
-            </>
+            </div>
           )}
 
           {type && (
-            <>
-              <label className="font-semibold">Item</label>
+            <div>
+              <label className="block text-sm font-medium text-gray-200 mb-1">Item</label>
               <select
-                className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-background overflow-y-auto"
+                className="w-full border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 bg-[#232323] text-gray-100 placeholder-gray-400 transition"
                 value={item}
                 onChange={e => setItem(e.target.value)}
               >
@@ -129,70 +133,78 @@ export default function Home() {
                   <option key={i} value={i}>{i}</option>
                 ))}
               </select>
-            </>
+            </div>
           )}
 
           {item && (
-            <>
-              <label className="font-semibold">Impact</label>
-              <select
-                className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-background"
-                value={impact}
-                onChange={e => setImpact(e.target.value)}
-              >
-                <option value="">Select impact</option>
-                {impacts.map(im => (
-                  <option key={im} value={im}>{im}</option>
-                ))}
-              </select>
-
-              <label className="font-semibold">Urgency</label>
-              <select
-                className="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-background"
-                value={urgency}
-                onChange={e => setUrgency(e.target.value)}
-              >
-                <option value="">Select urgency</option>
-                {urgencies.map(u => (
-                  <option key={u} value={u}>{u}</option>
-                ))}
-              </select>
-            </>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-200 mb-1">Impact</label>
+                <select
+                  className="w-full border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 bg-[#232323] text-gray-100 placeholder-gray-400 transition"
+                  value={impact}
+                  onChange={e => setImpact(e.target.value)}
+                >
+                  <option value="">Select impact</option>
+                  {impacts.map(im => (
+                    <option key={im} value={im}>{im}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-200 mb-1">Urgency</label>
+                <select
+                  className="w-full border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 bg-[#232323] text-gray-100 placeholder-gray-400 transition"
+                  value={urgency}
+                  onChange={e => setUrgency(e.target.value)}
+                >
+                  <option value="">Select urgency</option>
+                  {urgencies.map(u => (
+                    <option key={u} value={u}>{u}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
           )}
 
           <button
             type="button"
-            className="mt-4 bg-blue-600 text-white rounded px-4 py-2 font-semibold hover:bg-blue-700 transition"
+            className="mt-6 w-full bg-gray-700 hover:bg-gray-800 text-gray-100 rounded-lg px-6 py-3 font-semibold text-base shadow transition disabled:opacity-50"
             onClick={handleCheck}
+            disabled={!subject || !category || !type || !item || !impact || !urgency}
           >
             Check
           </button>
         </form>
-        <div className="w-full sm:w-1/3 flex flex-col gap-4">
-          <label className="font-semibold">Description</label>
-          <textarea
-            className="border rounded px-3 py-2 min-h-[120px] focus:outline-none focus:ring-2 focus:ring-blue-400 bg-background resize-none"
-            value={description}
-            onChange={e => setDescription(e.target.value)}
-            placeholder="Enter description"
-          />
+        <div className="w-full sm:w-1/3 flex flex-col gap-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-200 mb-1">Description</label>
+            <textarea
+              className="w-full border border-gray-700 rounded-lg px-4 py-2 min-h-[120px] focus:outline-none focus:ring-2 focus:ring-gray-500 bg-[#232323] text-gray-100 placeholder-gray-400 resize-none transition"
+              value={description}
+              onChange={e => setDescription(e.target.value)}
+              placeholder="Enter description"
+            />
+          </div>
 
           {showSummary && (
-            <div className="mt-4 p-4 bg-gray-100 dark:bg-gray-800 rounded shadow text-sm">
-              <div className="font-bold mb-2">Resumo:</div>
-              <div><b>Subject:</b> {subject}</div>
-              <div><b>Category:</b> {category}</div>
-              <div><b>Type:</b> {type}</div>
-              <div><b>Item:</b> {item}</div>
-              <div><b>Impact:</b> {impact}</div>
-              <div><b>Urgency:</b> {urgency}</div>
-              <div><b>Description:</b> {description}</div>
+            <div className="mt-2 p-6 bg-[#232323] rounded-xl shadow text-sm border border-gray-700">
+              <div className="font-bold text-gray-100 mb-3 text-base">Resumo</div>
+              <ul className="space-y-1">
+                <li><span className="font-semibold">Subject:</span> {subject}</li>
+                <li><span className="font-semibold">Category:</span> {category}</li>
+                <li><span className="font-semibold">Type:</span> {type}</li>
+                <li><span className="font-semibold">Item:</span> {item}</li>
+                <li><span className="font-semibold">Impact:</span> {impact}</li>
+                <li><span className="font-semibold">Urgency:</span> {urgency}</li>
+                <li><span className="font-semibold">Description:</span> {description}</li>
+              </ul>
             </div>
           )}
 
           {showEmailBtn && (
             <button
-              className="mt-4 bg-green-600 text-white rounded px-4 py-2 font-semibold hover:bg-green-700 transition"
+              className="mt-4 w-full bg-gray-700 hover:bg-gray-800 text-gray-100 rounded-lg px-6 py-3 font-semibold text-base shadow transition"
               onClick={handleCreateEmail}
             >
               Criar Email
