@@ -29,5 +29,4 @@ jobs:
     - name: Push to remote server
       run: |
         git remote add deploy ssh://deploy@lucaspolloni.com:/opt/mail2tts/stg/app.git
-        git push deploy staging:master --force
-        
+        git push deploy stg:master --force
