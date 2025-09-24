@@ -30,4 +30,3 @@ jobs:
       run: |
         git remote add deploy ssh://deploy@lucaspolloni.com:/opt/mail2tts/stg/app.git
         git push deploy stg:master --force
-
